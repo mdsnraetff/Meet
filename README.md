@@ -5,6 +5,8 @@ A serverless, progressive web application (PWA) with React using a
 test-driven development (TDD) technique. The application uses the Google
 Calendar API to fetch upcoming events.
 
+Serverless, specifically AWS Lambada, will be used to authenticate users as they are tyring to access events from the Google Calendar API. 
+
 ## Dependencies
 
 - React
