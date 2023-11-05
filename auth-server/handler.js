@@ -70,6 +70,10 @@ module.exports.getAccessToken = async (event) => {
       return {
         statusCode: 500,
         body: JSON.stringify(error),
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': true,
+        }
       };
     });
 };
@@ -113,9 +117,14 @@ module.exports.getCalendarEvents = async (event) => {
     })
     .catch((error) => {
       // Handle error
+      console.log(error);
       return {
         statusCode: 500,
         body: JSON.stringify(error),
-      };
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': true,
+        }
+      }
     });
 };
