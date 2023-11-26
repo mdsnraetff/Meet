@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: #ffff;
 }
 
 .App * {
@@ -12,6 +13,7 @@
 ul {
   padding: 0;
   list-style: none;
+  background-color: #ffff;
 }
 
 p {
@@ -23,12 +25,14 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid;
   font-size: 14px;
+  font-weight: bolder;
   line-height: 20px;
   align-self: center;
   height: 38px;
   margin-bottom: 20px;
+  background-color: #9caf88;
 }
 
 .city {
@@ -40,6 +44,12 @@ input[type="number"] {
   flex-direction: column;
   margin: auto;
   position: relative;
+}
+
+.details {
+  display: inline-block;
+  text-align: center;
+  width: 50%;
 }
 
 .suggestions {
@@ -56,7 +66,7 @@ input[type="number"] {
 .suggestions>li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #dfe6da;
   cursor: default;
 }
 
@@ -71,13 +81,15 @@ input[type="number"] {
 
 .event {
   padding: 10px 10px 35px;
-  font-family: Arial;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
+  text-align: center;
+  border: 1px solid;
   border-radius: 4px;
   position: relative;
+  margin-bottom: 10px;
+  background-color: #cbd5c0;
 }
+
+
 
 .details-btn {
   position: absolute;
@@ -87,4 +99,6 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+  background-color: #758467;
+  color: #ffff;
 }
