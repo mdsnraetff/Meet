@@ -20,7 +20,7 @@ describe('<App /> component', () => {
 
     test('render NumberOfEvents', () => {
         const AppDOM = render(<App />).container.firstChild;
-        expect(AppDOM.querySelector('#event-number')).toBeInTheDocument();
+        expect(AppDOM.querySelector('#number-of-events')).toBeInTheDocument();
     })
 });
 
@@ -50,4 +50,19 @@ describe('<App /> integration', () => {
             expect(event.textContent).toContain("Berlin, Germany");
         });
     });
+
+    test('renders select number of events', async () => {
+        const AppComponent = render(<App />);
+        const AppDOM = AppComponent.container.firstChild;
+
+        const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+        const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
+
+        await userEvent.type(NumberOfEventsInput, '{backspace}{backspace}10');
+
+        const EventListDOM = AppDOM.querySelector('#event-list');
+        const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');
+        expect(allRenderedEventItems.length).toEqual(32);
+    })
 });
+

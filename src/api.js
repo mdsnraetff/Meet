@@ -6,6 +6,29 @@ export const extractLocations = (events) => {
     return locations;
 };
 
+const checkToken = async (accessToken) => {
+    const response = await fetch(
+        `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    );
+    const result = await response.json();
+    return result;
+};
+
+const removeQuery = () => {
+    let newurl;
+    if (window.history.pushState && window.location.pathname) {
+        newurl =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname;
+        window.history.pushState("", "", newurl);
+    } else {
+        newurl = window.location.protocol + "//" + window.location.host;
+        window.history.pushState("", "", newurl);
+    }
+};
+
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const response = await fetch(
@@ -17,13 +40,7 @@ const getToken = async (code) => {
     return access_token;
 };
 
-const checkToken = async (accessToken) => {
-    const response = await fetch(
-        `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-    );
-    const result = await response.json();
-    return result;
-};
+
 
 export const getEvents = async () => {
     if (window.location.href.startsWith('http://localhost')) {
@@ -42,20 +59,7 @@ export const getEvents = async () => {
     }
 };
 
-const removeQuery = () => {
-    let newurl;
-    if (window.history.pushState && window.location.pathname) {
-        newurl =
-            window.location.protocol +
-            "//" +
-            window.location.host +
-            window.location.pathname;
-        window.history.pushState("", "", newurl);
-    } else {
-        newurl = window.location.protocol + "//" + window.location.host;
-        window.history.pushState("", "", newurl);
-    }
-};
+
 
 export const getAccessToken = async () => {
     const accessToken = localStorage.getItem('access_token');
@@ -67,7 +71,7 @@ export const getAccessToken = async () => {
         const code = await searchParams.get("code");
         if (!code) {
             const response = await fetch(
-                "YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT"
+                "https://46p5xwex7e.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
             );
             const result = await response.json();
             const { authUrl } = result;
