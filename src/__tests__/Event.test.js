@@ -2,6 +2,7 @@ import Event from "../components/Event";
 import userEvent from "@testing-library/user-event";
 import { render } from "@testing-library/react";
 import mockData from "../mock-data";
+import App from "../App";
 
 const mockEvent = mockData[0];
 
