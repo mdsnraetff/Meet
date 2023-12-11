@@ -68,6 +68,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   background-color: #dfe6da;
   cursor: default;
+
 }
 
 .suggestions>li:last-child {
@@ -80,6 +81,7 @@ input[type="number"] {
 }
 
 .event {
+
   padding: 10px 10px 35px;
   text-align: center;
   border: 1px solid;
