@@ -14,11 +14,12 @@ describe('<NumberOfEvents /> component', () => {
     test('Textbox Function', () => {
         const input = NumberOfEventsComponent.queryByRole('textbox');
         expect(input).toBeInTheDocument();
+        expect(input).toHaveClass('number-of-events-input')
     });
 
-    test('Deafault is 32', () => {
+    test('Default is 32', () => {
         const input = NumberOfEventsComponent.queryByRole('textbox');
-        expect(input).toHaveValue('32');
+        expect(input).toHaveValue("32");
     });
 
     test('User typing textbox', async () => {
@@ -28,3 +29,4 @@ describe('<NumberOfEvents /> component', () => {
 
     })
 });
+
